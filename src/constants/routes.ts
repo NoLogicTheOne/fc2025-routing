@@ -6,4 +6,4 @@ export const ROUTES = {
   linkFunction: '/:linkId/function',
   linkInterpolate: '/:linkId/interpolate',
   any: '/*',
-};
+} as const;

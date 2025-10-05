@@ -56,11 +56,15 @@ export function LinkStringPage() {
 
       <Title level={3}>Навигация по другим страницам</Title>
       <Space direction='vertical'>
-        <Link to={generatePath(ROUTES.links, { linkId: 'links' })}>← Вернуться к списку типов ссылок</Link>
-        <Link to={generatePath(ROUTES.linkNavigate, { linkId: 'links' })}>🧭 Navigate Links →</Link>
-        <Link to={generatePath(ROUTES.linkFunction, { linkId: 'links' })}>⚙️ Function Links →</Link>
-        <Link to={generatePath(ROUTES.linkInterpolate, { linkId: 'links' })}>🔀 Interpolate Links →</Link>
-        <Link to='/'>🏠 На главную →</Link>
+        <Link to={generatePath({ href: ROUTES.links, params: { linkId: 'links' } })}>
+          ← Вернуться к списку типов ссылок
+        </Link>
+        <Link to={generatePath({ href: ROUTES.linkNavigate, params: { linkId: 'links' } })}>🧭 Navigate Links →</Link>
+        <Link to={generatePath({ href: ROUTES.linkFunction, params: { linkId: 'links' } })}>⚙️ Function Links →</Link>
+        <Link to={generatePath({ href: ROUTES.linkInterpolate, params: { linkId: 'links' } })}>
+          🔀 Interpolate Links →
+        </Link>
+        <Link to={generatePath({ href: ROUTES.home })}>🏠 На главную →</Link>
       </Space>
     </Layout>
   );

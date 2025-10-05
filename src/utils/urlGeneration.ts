@@ -1,12 +1,10 @@
-import type { GeneratePathProps, ParamsObject } from '../types/link';
-import { generatePath as routerGeneratePath } from 'react-router-dom';
+import type { ROUTES } from '../constants/routes';
+import type { Values } from '../types/common';
 
-export function extractParams<Path extends string>(props: GeneratePathProps<Path>): ParamsObject<Path> | undefined {
-  if ('params' in props) {
-    return props.params;
+export function generatePath(path: Values<typeof ROUTES>, params?: Record<string, string>): string {
+  if (!params) {
+    return path;
   }
-}
 
-export function generatePath<Path extends string>(props: GeneratePathProps<Path>): string {
-  return routerGeneratePath(props.href, extractParams(props));
+  return Object.entries(params).reduce((acc, [key, value]) => acc.replaceAll(`:${key}`, value), path);
 }

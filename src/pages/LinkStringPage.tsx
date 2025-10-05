@@ -1,5 +1,7 @@
 import { Layout, Typography, Card, Space, Divider, List } from 'antd';
 import { Link } from 'react-router-dom';
+import { generatePath } from '../utils/urlGeneration';
+import { ROUTES } from '../constants/routes';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -54,10 +56,10 @@ export function LinkStringPage() {
 
       <Title level={3}>Навигация по другим страницам</Title>
       <Space direction='vertical'>
-        <Link to='/links'>← Вернуться к списку типов ссылок</Link>
-        <Link to='/links/navigate'>🧭 Navigate Links →</Link>
-        <Link to='/links/function'>⚙️ Function Links →</Link>
-        <Link to='/links/interpolate'>🔀 Interpolate Links →</Link>
+        <Link to={generatePath(ROUTES.links, { linkId: 'links' })}>← Вернуться к списку типов ссылок</Link>
+        <Link to={generatePath(ROUTES.linkNavigate, { linkId: 'links' })}>🧭 Navigate Links →</Link>
+        <Link to={generatePath(ROUTES.linkFunction, { linkId: 'links' })}>⚙️ Function Links →</Link>
+        <Link to={generatePath(ROUTES.linkInterpolate, { linkId: 'links' })}>🔀 Interpolate Links →</Link>
         <Link to='/'>🏠 На главную →</Link>
       </Space>
     </Layout>

@@ -34,7 +34,7 @@ const ROUTES = [
       },
       {
         id: RouteIds.linkString,
-        path: 'string',
+        path: '/string',
         element: <LinkStringPage />,
       },
       {

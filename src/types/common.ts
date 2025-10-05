@@ -4,3 +4,5 @@ export type Prettify<T> =
         [K in keyof T]: T[K];
       }
     : T;
+
+export type Values<T extends Record<string, unknown>> = T[keyof T];

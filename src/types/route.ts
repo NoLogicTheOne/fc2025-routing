@@ -3,15 +3,16 @@ import type { Prettify } from './common';
 
 export type AllPaths = Prettify<HandleRoutes<Routes>>;
 
-// type RemoveTrailingSlashes<Path extends string> = Path extends `/${infer AfterSlash}` ? AfterSlash : Path;
+type RemoveTrailingSlashes<Path extends string> = Path extends `${infer BeforeSlash}/` ? BeforeSlash : Path;
+type RemoveHeadingSlashes<Path extends string> = Path extends `/${infer AfterSlash}` ? AfterSlash : Path;
+
 type RemoveDoubleSlashes<Path extends string> = Path extends `${infer Before}//${infer After}`
   ? RemoveDoubleSlashes<`${Before}/${After}`>
   : Path;
 
-type ConcatPaths<
-  Path1 extends string,
-  Path2 extends string | undefined = '',
-> = RemoveDoubleSlashes<`${Path1}/${Path2}`>;
+type NormalizePath<Path extends string> = `/${RemoveDoubleSlashes<RemoveHeadingSlashes<RemoveTrailingSlashes<Path>>>}`;
+
+type ConcatPaths<Path1 extends string, Path2 extends string | undefined = ''> = NormalizePath<`${Path1}/${Path2}`>;
 
 type HandleChildren<
   Route extends ExtendedRouteObject,

@@ -1,7 +1,7 @@
-import { Layout, Typography, Space, Divider } from 'antd';
+import { Layout, Typography, Space, Divider, Card } from 'antd';
 import { Link } from 'react-router-dom';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
 const COMMON_LINK_ID = 'linkId';
 
@@ -17,12 +17,25 @@ export function LinkInterpolatePage() {
 
       <Divider />
 
-      <Title level={2}>Примеры интерполяции</Title>
-      <Paragraph>
-        <Text code title=''>
-          /$COMMON_LINK_ID/navigate`
-        </Text>
-      </Paragraph>
+      <Card title='Преимущества интерполяции ссылок'>
+        <Paragraph>
+          • Наглядный результат сразу
+          <br />
+          • Переиспользование переменных, более простые изменения
+          <br />
+        </Paragraph>
+      </Card>
+
+      <Divider />
+
+      <Card title='Недостатки интерполяции ссылок'>
+        <Paragraph>
+          • Сложность проверки, что роут существует
+          <br />
+          • Децентрализация, из-за которой ослабляется контроль за роутингом
+          <br />
+        </Paragraph>
+      </Card>
 
       <Divider />
 

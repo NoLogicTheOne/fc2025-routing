@@ -42,7 +42,7 @@ export function LinksPage() {
 
         <Card>
           <Title level={3}>🔀 Interpolate Links</Title>
-          <Paragraph>Интерполяция ссылок для вставки динамических значений в URL с проверкой типов.</Paragraph>
+          <Paragraph>Интерполяция ссылок для вставки динамических значений в URL</Paragraph>
           <Link to='/links/interpolate'>Перейти к примерам Interpolate →</Link>
         </Card>
       </Space>

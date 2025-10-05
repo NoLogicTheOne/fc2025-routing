@@ -13,7 +13,7 @@ export type ExtendedRouteObject = RouteObject & {
   id?: RouteIds;
 };
 
-const ROUTES = [
+const ROUTES: ExtendedRouteObject[] = [
   {
     id: RouteIds.home,
     path: '/',
@@ -56,7 +56,7 @@ const ROUTES = [
     path: '*',
     element: <NotFoundPage />,
   },
-] as const satisfies ExtendedRouteObject[];
+];
 
 function AppRoutes() {
   const routes = useRoutes(ROUTES);

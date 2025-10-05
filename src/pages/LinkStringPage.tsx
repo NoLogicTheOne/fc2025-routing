@@ -1,7 +1,7 @@
 import { Layout, Typography, Card, Space, Divider, List } from 'antd';
 import { Link } from 'react-router-dom';
-import { generatePath } from '../utils/urlGeneration';
 import { ROUTES } from '../constants/routes';
+import { TypedLink } from '../components/TypedLink';
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -56,15 +56,19 @@ export function LinkStringPage() {
 
       <Title level={3}>Навигация по другим страницам</Title>
       <Space direction='vertical'>
-        <Link to={generatePath({ href: ROUTES.links, params: { linkId: 'links' } })}>
+        <TypedLink to={ROUTES.links} params={{ linkId: 'links' }}>
           ← Вернуться к списку типов ссылок
-        </Link>
-        <Link to={generatePath({ href: ROUTES.linkNavigate, params: { linkId: 'links' } })}>🧭 Navigate Links →</Link>
-        <Link to={generatePath({ href: ROUTES.linkFunction, params: { linkId: 'links' } })}>⚙️ Function Links →</Link>
-        <Link to={generatePath({ href: ROUTES.linkInterpolate, params: { linkId: 'links' } })}>
+        </TypedLink>
+        <TypedLink to={ROUTES.linkNavigate} params={{ linkId: 'links' }}>
+          🧭 Navigate Links →
+        </TypedLink>
+        <TypedLink to={ROUTES.linkFunction} params={{ linkId: 'links' }}>
+          ⚙️ Function Links →
+        </TypedLink>
+        <TypedLink to={ROUTES.linkInterpolate} params={{ linkId: 'links' }}>
           🔀 Interpolate Links →
-        </Link>
-        <Link to={generatePath({ href: ROUTES.home })}>🏠 На главную →</Link>
+        </TypedLink>
+        <TypedLink to={ROUTES.home}>🏠 На главную →</TypedLink>
       </Space>
     </Layout>
   );

@@ -1,5 +1,6 @@
 import { Layout, Typography, Space, Divider, Card } from 'antd';
-import { Link } from 'react-router-dom';
+import { TypedLink } from '../components/TypedLink';
+import { ROUTES } from '../constants/routes';
 
 const { Title, Paragraph } = Typography;
 
@@ -41,11 +42,19 @@ export function LinkInterpolatePage() {
 
       <Title level={3}>Навигация по другим страницам</Title>
       <Space direction='vertical'>
-        <Link to={`/${COMMON_LINK_ID}`}>← Вернуться к списку типов ссылок</Link>
-        <Link to={`/${COMMON_LINK_ID}/navigate`}>🧭 Navigate Links →</Link>
-        <Link to={`/${COMMON_LINK_ID}/string`}>📝 String Links →</Link>
-        <Link to={`/${COMMON_LINK_ID}/function`}>⚙️ Function Links →</Link>
-        <Link to={`/`}>🏠 На главную →</Link>
+        <TypedLink to={ROUTES.links} params={{ linkId: COMMON_LINK_ID }}>
+          ← Вернуться к списку типов ссылок
+        </TypedLink>
+        <TypedLink to={ROUTES.linkNavigate} params={{ linkId: COMMON_LINK_ID }}>
+          🧭 Navigate Links →
+        </TypedLink>
+        <TypedLink to={ROUTES.linkFunction} params={{ linkId: COMMON_LINK_ID }}>
+          ⚙️ Function Links →
+        </TypedLink>
+        <TypedLink to={ROUTES.linkInterpolate} params={{ linkId: COMMON_LINK_ID }}>
+          🔀 Interpolate Links →
+        </TypedLink>
+        <TypedLink to={ROUTES.home}>🏠 На главную →</TypedLink>
       </Space>
     </Layout>
   );

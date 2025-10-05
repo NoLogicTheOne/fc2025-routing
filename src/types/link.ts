@@ -9,8 +9,6 @@ import type { Prettify } from './common';
 
 export type ParamsObject<Path extends string> = Record<PathParam<Path>, string>;
 
-type T1 = ParamsObject<'/:id?/:rf'>;
-
 export type ParamsProps<Path extends string> =
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   Record<string, never> extends ParamsObject<Path> ? {} : { params: Prettify<ParamsObject<Path>> };

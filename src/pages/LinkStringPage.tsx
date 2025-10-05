@@ -54,10 +54,10 @@ export function LinkStringPage() {
 
       <Title level={3}>Навигация по другим страницам</Title>
       <Space direction='vertical'>
-        <Link to='/linkID'>← Вернуться к списку типов ссылок</Link>
-        <Link to='/linkID/navigate'>🧭 Navigate Links →</Link>
-        <Link to='/linkID/function'>⚙️ Function Links →</Link>
-        <Link to='/linkID/interpolate'>🔀 Interpolate Links →</Link>
+        <Link to='/links'>← Вернуться к списку типов ссылок</Link>
+        <Link to='/links/navigate'>🧭 Navigate Links →</Link>
+        <Link to='/links/function'>⚙️ Function Links →</Link>
+        <Link to='/links/interpolate'>🔀 Interpolate Links →</Link>
         <Link to='/'>🏠 На главную →</Link>
       </Space>
     </Layout>

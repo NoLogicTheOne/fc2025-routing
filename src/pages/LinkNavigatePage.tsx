@@ -6,12 +6,16 @@ const { Title, Paragraph, Text } = Typography;
 export function LinkNavigatePage() {
   const navigate = useNavigate();
 
+  const handleNavigateToLinks = () => {
+    navigate('/links/string');
+  };
+
   const handleNavigateToString = () => {
-    navigate('/linkID/string');
+    navigate('/links/string');
   };
 
   const handleNavigateToFunction = () => {
-    navigate('/linkID/function');
+    navigate('/links/function');
   };
 
   const handleNavigateBack = () => {
@@ -41,9 +45,33 @@ export function LinkNavigatePage() {
         </Space>
       </Card>
 
+      <Card title='Преимущества программной навигации'>
+        <Paragraph>
+          • Контроль за процессом исполнения программы
+          <br />
+          • Возможность использовать кнопки и другие контролы в качестве ссылок
+          <br />
+        </Paragraph>
+      </Card>
+
+      <Divider />
+
+      <Card title='Недостатки программной навигации'>
+        <Paragraph>
+          • Не подходит для классических ссылок, из-за чего теряется унификация
+          <br />
+          • Децентрализация, из-за которой ослабляется контроль за роутингом
+          <br />
+        </Paragraph>
+      </Card>
+
+      <Divider />
+
       <Title level={3}>Навигация по другим страницам</Title>
       <Space direction='vertical'>
-        <Link to='/links'>← Вернуться к списку типов ссылок</Link>
+        <Link to='/links3' onClick={handleNavigateToLinks}>
+          ← Вернуться к списку типов ссылок
+        </Link>
         <Link to='/links/string'>📝 String Links →</Link>
         <Link to='/links/function'>⚙️ Function Links →</Link>
         <Link to='/links/interpolate'>🔀 Interpolate Links →</Link>
